@@ -24,7 +24,7 @@ public class Car {
         else { this.country = country; }
 
         if (color == null){
-            this.color = "белого"; }
+            this.color = "белый"; }
         else { this.color = color; }
 
         if (engine == 0) {
@@ -37,7 +37,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return brand + " " + model + " " + productionYear + " года выпуска, " + "сборка в " + country + ", " + color + " цвета" +
+        return brand + " " + model + " " + productionYear + " года выпуска, " + "сборка в " + country + ", " + color + " цвет" +
                 " ,обЪем двигателя " + engine + " литра.";
     }
 
