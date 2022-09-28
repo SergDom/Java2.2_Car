@@ -1,5 +1,7 @@
 package transport;
 
+import java.time.LocalDate;
+
 public class Car {
     private String brand;
     private String model;
@@ -14,7 +16,7 @@ public class Car {
     private int seats;
     String tyre;
 
-    class key {
+    public static class key {
         private String remoteStartEngine;
         private String keylessAccess;
 
@@ -46,6 +48,43 @@ public class Car {
             public String toString() {
                 return "Автозапуск " + remoteStartEngine + " Безключевой доступ " + keylessAccess;
 
+        }
+    }
+    public static class insurance {
+        private int expirationDate;
+        private double priceInsurance;
+        private String numberInsurance;
+
+        public insurance(int expirationDate, double priceInsurance, String numberInsurance) {
+            if (expirationDate < LocalDate.now().getYear()) {
+                System.out.println("Нужно оформить страховку");
+            } else {
+                this.expirationDate = expirationDate;
+            }
+            this.priceInsurance = priceInsurance;
+
+            if (numberInsurance.matches("^\\d{9}")) {
+                this.numberInsurance = numberInsurance;
+            } else {
+                this.numberInsurance = "Неправильный номер страховки";
+            }
+        }
+
+        public int getExpirationDate() {
+            return expirationDate;
+        }
+
+        public double getPriceInsurance() {
+            return priceInsurance;
+        }
+
+        public String getNumberInsurance() {
+            return numberInsurance;
+        }
+
+        @Override
+        public String toString() {
+            return "Полис дествителен до: " + expirationDate + " Цена полиса " + priceInsurance + " Номер полиса " + numberInsurance;
         }
     }
     public Car(String brand, String model, int productionYear, String country, String color, double engine, String gear, String carBody, String licensePlate, int seats, String tyre) {
