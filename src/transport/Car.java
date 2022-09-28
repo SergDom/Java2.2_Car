@@ -14,7 +14,40 @@ public class Car {
     private int seats;
     String tyre;
 
+    class key {
+        private String remoteStartEngine;
+        private String keylessAccess;
 
+
+
+        public key (String remoteStartEngine, String keylessAccess) {
+            if (remoteStartEngine == null || remoteStartEngine.isEmpty()) {
+                this.remoteStartEngine = "нет авто-запуска";
+            } else {
+                this.remoteStartEngine = remoteStartEngine;
+            }
+
+            if (keylessAccess == null || keylessAccess.isEmpty()) {
+                this.keylessAccess = "нет безключевого доступа";
+            } else {
+                this.keylessAccess = keylessAccess;
+            }
+        }
+
+        public String getRemoteStartEngine() {
+            return remoteStartEngine;
+        }
+
+        public String getKeylessAccess() {
+            return keylessAccess;
+        }
+
+        @Override
+            public String toString() {
+                return "Автозапуск " + remoteStartEngine + " Безключевой доступ " + keylessAccess;
+
+        }
+    }
     public Car(String brand, String model, int productionYear, String country, String color, double engine, String gear, String carBody, String licensePlate, int seats, String tyre) {
         if (brand == null) {
             this.brand = "default";
@@ -67,17 +100,17 @@ public class Car {
         if (licensePlate.matches("^[А-Я]{1}\\d{3}[А-Я]{2}\\d{3}")) {
             this.licensePlate = licensePlate;
         } else {
-            this.licensePlate = "Неправильно введен номер автомабиля";
+            this.licensePlate = "Неправильно введен номер автомобиля";
         }
 
-        if (seats <= 0 || seats > 8) {
-            this.seats = Integer.parseInt("Неправильно указано количество мест");
+        if (seats < 0 || seats > 8) {
+            System.out.println("Укажите корректное количество мест");
         } else {
             this.seats = seats;
         }
 
         this.tyre = tyre;
-        String session = "лето";
+        String session = "Лето";
         if (tyre.equals(session)) {
             this.tyre = tyre;
         } else {
@@ -95,8 +128,8 @@ public class Car {
         this.engine = 1.7;
         this.gear = "default";
         this.carBody = "default";
-        this.licensePlate = "Неправильно введен номер автомабиля";
-        this.seats = Integer.parseInt("Неправильно указано количество мест");
+        this.licensePlate = "Неправильно введен номер автомобиля";
+        this.seats = 4;
         this.tyre = "Смените резину на сезонную";
 
     }
@@ -153,6 +186,8 @@ public class Car {
     @Override
     public String toString() {
         return brand + " " + model + " " + productionYear + " года выпуска, " + "сборка в " + country + ", " + color + " цвет" +
-                " ,обЪем двигателя " + engine + " литра.";
+                " ,обЪем двигателя " + engine + " литра." + " Коробка передач " + gear + " Тип кузова " + carBody + " номер автомобиля "
+                + licensePlate + " количетво мест " + seats + " резина " + tyre;
+
     }
 }
