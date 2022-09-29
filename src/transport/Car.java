@@ -21,8 +21,7 @@ public class Car {
         private String keylessAccess;
 
 
-
-        public key (String remoteStartEngine, String keylessAccess) {
+        public key(String remoteStartEngine, String keylessAccess) {
             if (remoteStartEngine == null || remoteStartEngine.isEmpty()) {
                 this.remoteStartEngine = "нет авто-запуска";
             } else {
@@ -45,11 +44,12 @@ public class Car {
         }
 
         @Override
-            public String toString() {
-                return "Автозапуск " + remoteStartEngine + " Безключевой доступ " + keylessAccess;
+        public String toString() {
+            return "Автозапуск " + remoteStartEngine + " Безключевой доступ " + keylessAccess;
 
         }
     }
+
     public static class insurance {
         private int expirationDate;
         private double priceInsurance;
@@ -63,7 +63,7 @@ public class Car {
             }
             this.priceInsurance = priceInsurance;
 
-            if (numberInsurance.matches("^\\d{9}")) {
+            if (numberInsurance.matches("^\\w{9}")) {
                 this.numberInsurance = numberInsurance;
             } else {
                 this.numberInsurance = "Неправильный номер страховки";
@@ -71,14 +71,17 @@ public class Car {
         }
 
         public int getExpirationDate() {
+
             return expirationDate;
         }
 
         public double getPriceInsurance() {
+
             return priceInsurance;
         }
 
         public String getNumberInsurance() {
+
             return numberInsurance;
         }
 
@@ -87,6 +90,7 @@ public class Car {
             return "Полис дествителен до: " + expirationDate + " Цена полиса " + priceInsurance + " Номер полиса " + numberInsurance;
         }
     }
+
     public Car(String brand, String model, int productionYear, String country, String color, double engine, String gear, String carBody, String licensePlate, int seats, String tyre) {
         if (brand == null) {
             this.brand = "default";
