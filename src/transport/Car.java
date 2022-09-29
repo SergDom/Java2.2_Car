@@ -2,14 +2,8 @@ package transport;
 
 import java.time.LocalDate;
 
-public class Car {
-    private String brand;
-    private String model;
+public class Car extends Transport {
     double engine;
-    String color;
-    private int productionYear;
-    String country;
-
     String gear;
     private String carBody;
     String licensePlate;
@@ -91,50 +85,38 @@ public class Car {
         }
     }
 
-    public Car(String brand, String model, int productionYear, String country, String color, double engine, String gear, String carBody, String licensePlate, int seats, String tyre) {
-        if (brand == null) {
-            this.brand = "default";
-        } else {
-            this.brand = brand;
-        }
+    public double getEngine() {
+        return engine;
+    }
 
-        if (model == null) {
-            this.model = "default";
-        } else {
-            this.model = model;
-        }
+    public String getGear() {
+        return gear;
+    }
 
-        if (productionYear <= 0) {
-            this.productionYear = 2000;
-        } else {
-            this.productionYear = productionYear;
-        }
+    public String getLicensePlate() {
+        return licensePlate;
+    }
 
-        if (country == null) {
-            this.country = "default";
-        } else {
-            this.country = country;
-        }
+    public String getTyre() {
+        return tyre;
+    }
 
-        if (color == null) {
-            this.color = "белый";
-        } else {
-            this.color = color;
-        }
+    public Car(String brand, String model, int productionYear, String country, String color, double maxSpeed, double engine, String gear, String carBody, String licensePlate, int seats, String tyre) {
+        super (brand,  model,  productionYear,  country,  color, maxSpeed);
 
-        if (engine == 0) {
+        if (engine == 0 || brand.isEmpty()) {
             this.engine = 1.7;
         } else {
             this.engine = engine;
         }
 
-        if (gear == null) {
+        if (gear == null || brand.isEmpty()) {
             this.gear = "default";
         } else {
             this.gear = gear;
         }
 
-        if (carBody == null) {
+        if (carBody == null || brand.isEmpty()) {
             this.carBody = "default";
         } else {
             this.carBody = carBody;
@@ -152,7 +134,6 @@ public class Car {
             this.seats = seats;
         }
 
-        this.tyre = tyre;
         String session = "Лето";
         if (tyre.equals(session)) {
             this.tyre = tyre;
@@ -162,53 +143,19 @@ public class Car {
 
     }
 
-    public Car() {
-        this.brand = "default";
-        this.model = "default";
-        this.productionYear = 2000;
-        this.country = "default";
-        this.color = "белый";
-        this.engine = 1.7;
-        this.gear = "default";
-        this.carBody = "default";
-        this.licensePlate = "Неправильно введен номер автомобиля";
-        this.seats = 4;
-        this.tyre = "Смените резину на сезонную";
-
-    }
+//    public Car() {
+//
+//        this.engine = 1.7;
+//        this.gear = "default";
+//        this.carBody = "default";
+//        this.licensePlate = "Неправильно введен номер автомобиля";
+//        this.seats = 4;
+//        this.tyre = "Смените резину на сезонную";
+//
+//    }
 
 
-    public String getBrand() {
-        return brand;
-    }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public int getProductionYear() {
-        return productionYear;
-    }
-
-    public void setProductionYear(int productionYear) {
-        this.productionYear = productionYear;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
 
     public String getCarBody() {
         return carBody;
@@ -228,7 +175,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return brand + " " + model + " " + productionYear + " года выпуска, " + "сборка в " + country + ", " + color + " цвет" +
+        return brand + " " + model + " " + productionYear + " года выпуска, " + "сборка в " + country + ", " + color + " цвет" + " Максимальная скорость " + maxSpeed +
                 " ,обЪем двигателя " + engine + " литра." + " Коробка передач " + gear + " Тип кузова " + carBody + " номер автомобиля "
                 + licensePlate + " количетво мест " + seats + " резина " + tyre;
 
