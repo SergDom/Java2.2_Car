@@ -104,23 +104,10 @@ public class Car extends Transport {
     public Car(String brand, String model, int productionYear, String country, String color, double maxSpeed, double engine, String gear, String carBody, String licensePlate, int seats, String tyre) {
         super (brand,  model,  productionYear,  country,  color, maxSpeed);
 
-        if (engine == 0 || brand.isEmpty()) {
-            this.engine = 1.7;
-        } else {
-            this.engine = engine;
-        }
+        setEngine(engine);
+        setGear(gear);
+        setCarBody(carBody);
 
-        if (gear == null || brand.isEmpty()) {
-            this.gear = "default";
-        } else {
-            this.gear = gear;
-        }
-
-        if (carBody == null || brand.isEmpty()) {
-            this.carBody = "default";
-        } else {
-            this.carBody = carBody;
-        }
 
         if (licensePlate.matches("^[А-Я]{1}\\d{3}[А-Я]{2}\\d{3}")) {
             this.licensePlate = licensePlate;
@@ -135,7 +122,7 @@ public class Car extends Transport {
         }
 
         String session = "Лето";
-        if (tyre.equals(session)) {
+        if (tyre.equalsIgnoreCase(session)) {
             this.tyre = tyre;
         } else {
             this.tyre = "Смените резину на сезонную";
@@ -155,14 +142,38 @@ public class Car extends Transport {
 //    }
 
 
+    public void setEngine(double engine) {
+        if (engine == 0 || engine < 0) {
+            this.engine = 1.7;
+        } else {
+            this.engine = engine;
+        }
+    }
+    public void setGear(String gear) {
+        if (gear == null || gear.isEmpty()) {
+            this.gear = "default";
+        } else {
+            this.gear = gear;
+        }
+    }
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate;
+    }
 
+    public void setTyre(String tyre) {
+        this.tyre = tyre;
+    }
 
     public String getCarBody() {
         return carBody;
     }
 
     public void setCarBody(String carBody) {
-        this.carBody = carBody;
+        if (carBody == null || brand.isEmpty()) {
+            this.carBody = "default";
+        } else {
+            this.carBody = carBody;
+        }
     }
 
     public int getSeats() {
@@ -174,9 +185,13 @@ public class Car extends Transport {
     }
 
     @Override
+    public void refill() {
+        System.out.println("Можно заправлять бензином, дизелем на заправке или заряжать на специальных электро-парковках, если это электрокар.");
+    }
+
+    @Override
     public String toString() {
-        return brand + " " + model + " " + productionYear + " года выпуска, " + "сборка в " + country + ", " + color + " цвет" + " Максимальная скорость " + maxSpeed +
-                " ,обЪем двигателя " + engine + " литра." + " Коробка передач " + gear + " Тип кузова " + carBody + " номер автомобиля "
+        return super.toString() + " Двигатель " + engine + " литра." + " Коробка передач " + gear + " Тип кузова " + carBody + " номер автомобиля "
                 + licensePlate + " количетво мест " + seats + " резина " + tyre;
 
     }

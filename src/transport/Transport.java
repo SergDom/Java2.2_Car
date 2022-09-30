@@ -1,6 +1,6 @@
 package transport;
 
-public class Transport {
+public abstract class Transport {
     protected String brand;
     protected String model;
     final protected int productionYear;
@@ -77,4 +77,11 @@ public class Transport {
     }
 
 
+    public abstract void refill();
+
+    @Override
+    public String toString() {
+        return brand + " " + model + " " + productionYear + " года выпуска, " + "сборка в " + country + ", " + color + " цвет" + " Максимальная скорость " + maxSpeed;
+
+    }
 }

@@ -61,4 +61,16 @@ public class Train extends Transport {
     public int getQuantityWagon() {
         return quantityWagon;
     }
+
+    @Override
+    public void refill() {
+        System.out.println("Нужно заправлять дизелем.");
+    }
+
+    @Override
+    public String toString() {
+        return "Поезд: " + super.toString() +
+                " Стоимость проезда: " + cost + " Время в пути: " + time + " Стация отправления: "
+                + departure + " Стация прибытия: " + arrival + " Количество вагонов: " + quantityWagon;
+    }
 }
