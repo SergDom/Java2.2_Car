@@ -38,9 +38,12 @@ public abstract class Transport {
         } else {
             this.color = color;
 
+        }
+        if (maxSpeed <= 0) {
+            this.maxSpeed = 2000;
+        } else {
             this.maxSpeed = maxSpeed;
         }
-
 
     }
 

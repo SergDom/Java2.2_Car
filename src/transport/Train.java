@@ -8,7 +8,7 @@ public class Train extends Transport {
     int quantityWagon;
 
 
-    public Train(String brand, String model, int productionYear, String country, String color, double maxSpeed, double cost) {
+    public Train(String brand, String model, int productionYear, String country, String color, double maxSpeed, double cost, double time, String departure, String arrival, int quantityWagon) {
         super(brand, model, productionYear, country, color, maxSpeed);
 
         if (cost < 0) {
@@ -70,7 +70,7 @@ public class Train extends Transport {
     @Override
     public String toString() {
         return "Поезд: " + super.toString() +
-                " Стоимость проезда: " + cost + " Время в пути: " + time + " Стация отправления: "
+                " Стоимость проезда: " + cost + " Время в пути: " + time + " часа. " + " Стация отправления: "
                 + departure + " Стация прибытия: " + arrival + " Количество вагонов: " + quantityWagon;
     }
 }
