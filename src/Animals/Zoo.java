@@ -11,8 +11,11 @@ public class Zoo {
         Herbivores giraff = new Herbivores("Длинношей", 5, "Савана", "Листья");
         giraff.setSpeed(20);
 
+        Amphibians frog = new Amphibians("Квакушка", 3, "Болото");
+
         System.out.println(giena);
         System.out.println(giraff);
+        System.out.println(frog);
 
 
 
