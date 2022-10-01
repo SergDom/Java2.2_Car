@@ -4,7 +4,7 @@ public abstract class Mammals extends Animals {
     private int speed;
 
 
-    public Mammals(String name, int age, String environment) {
+    public Mammals(String name, int age, String environment, int speed) {
         super(name, age, environment);
         setSpeed(speed);
     }

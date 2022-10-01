@@ -3,8 +3,8 @@ package Animals;
 public class Predators extends Mammals {
     String foodType;
 
-    public Predators(String name, int age, String environment, String foodType) {
-        super(name, age, environment);
+    public Predators(String name, int age, String environment, int speed, String foodType) {
+        super(name, age, environment, speed);
         setFoodType(foodType);
 
     }
@@ -31,7 +31,7 @@ public class Predators extends Mammals {
     }
     @Override
     public String toString() {
-        return "Хищники: " + super.toString() + ", Тип еды " + foodType;
+        return "Хищники: " + super.toString()  +", Тип еды " + foodType;
     }
 
 }

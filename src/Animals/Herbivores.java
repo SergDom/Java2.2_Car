@@ -2,8 +2,8 @@ package Animals;
 
 public class Herbivores extends Mammals {
     String foodType;
-    public Herbivores(String name, int age, String environment, String foodType) {
-        super(name, age, environment);
+    public Herbivores(String name, int age, String environment, int speed, String foodType) {
+        super(name, age, environment, speed);
 
         setFoodType(foodType);
     }
