@@ -48,6 +48,6 @@ abstract class Animals {
 
     @Override
     public String toString() {
-        return "Класс: " + getClass() + ", " + name + ", возраст " + age + ", среда обитания " + environment;
+        return  name + ", возраст " + age + ", среда обитания " + environment;
     }
 }

@@ -5,7 +5,7 @@ public class Predators extends Mammals {
 
     public Predators(String name, int age, String environment, String foodType) {
         super(name, age, environment);
-        this.foodType=foodType;
+        setFoodType(foodType);
 
     }
 
