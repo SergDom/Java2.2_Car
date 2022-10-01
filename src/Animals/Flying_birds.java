@@ -1,10 +1,11 @@
 package Animals;
 
-public class Not_flying_birds extends Birds {
+public class Flying_birds extends Birds {
     String moving;
 
-    public Not_flying_birds(String name, int age, String environment, String moving) {
+    public Flying_birds(String name, int age, String environment, String moving) {
         super(name, age, environment);
+
         setMoving(moving);
     }
 
@@ -19,24 +20,27 @@ public class Not_flying_birds extends Birds {
         } else {
             this.moving = moving;
         }
+
     }
 
-    public void walk() {
-        System.out.println("Я хожу где хочу");
+    public void fly() {
+        System.out.println("Я могу летать");
     }
 
     @Override
     void eat() {
-        System.out.println("Я ем насекомых и травку");
+        System.out.println("Я ем насекомых и мышей");
     }
 
     @Override
     void go() {
-        System.out.println("Я перемещаюсь по земле");
-    }
-    @Override
-    public String toString() {
-        return "Птицы нелетающие: " + super.toString() + " " + moving;
+        System.out.println("Я хожу и летаю где хочу");
     }
 
+    @Override
+    public String toString() {
+        return "Птицы летающие: " + super.toString() + " " + moving;
+    }
 }
+
+
