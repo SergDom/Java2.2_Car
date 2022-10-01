@@ -44,6 +44,9 @@ public class Zoo {
         System.out.println(penguin);
         System.out.println(dodo);
 
+        Predators hyena2 = new Predators("Забияка", 11, "Савана", 15,"Падаль");
+        System.out.println(hyena.equals(hyena2));
+
 
 
     }

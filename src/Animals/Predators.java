@@ -1,5 +1,7 @@
 package Animals;
 
+import java.util.Objects;
+
 public class Predators extends Mammals {
     String foodType;
 
@@ -29,6 +31,15 @@ public class Predators extends Mammals {
     void go() {
         System.out.println("Я хожу и ищю жертву");
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Predators predators = (Predators) o;
+        return Objects.equals(getName(), predators.getName());
+    }
+
     @Override
     public String toString() {
         return "Хищники: " + super.toString()  +", Тип еды " + foodType;

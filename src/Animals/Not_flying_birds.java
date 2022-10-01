@@ -1,5 +1,7 @@
 package Animals;
 
+import java.util.Objects;
+
 public class Not_flying_birds extends Birds {
     String moving;
 
@@ -33,6 +35,14 @@ public class Not_flying_birds extends Birds {
     @Override
     void go() {
         System.out.println("Я перемещаюсь по земле");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Not_flying_birds not_flying_birds = (Not_flying_birds) o;
+        return Objects.equals(getName(), not_flying_birds.getName());
     }
     @Override
     public String toString() {

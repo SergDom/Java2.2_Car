@@ -1,5 +1,7 @@
 package Animals;
 
+import java.util.Objects;
+
 public class Herbivores extends Mammals {
     String foodType;
     public Herbivores(String name, int age, String environment, int speed, String foodType) {
@@ -26,6 +28,15 @@ public class Herbivores extends Mammals {
     void go() {
         System.out.println("Я хожу по суше");
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Herbivores herbivores = (Herbivores) o;
+        return Objects.equals(getName(), herbivores.getName());
+    }
+
 
     @Override
     public String toString() {
