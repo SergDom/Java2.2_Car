@@ -1,0 +1,48 @@
+package Animals;
+
+import java.util.Objects;
+
+public class Predators extends Mammals {
+    private String foodType;
+
+    public Predators(String name, int age, String environment, int speed, String foodType) {
+        super(name, age, environment, speed);
+        setFoodType(foodType);
+
+    }
+
+    public String getFoodType() {
+        return foodType;
+    }
+
+    public void setFoodType(String foodType) {
+        if (foodType == null || foodType.isEmpty()) {
+            this.foodType = "Нет еды (((";
+        } else {
+            this.foodType = foodType;
+        }
+
+    }
+
+    public void hunt (){
+        System.out.println("Охочушь за всем живым");
+    }
+    @Override
+    void go() {
+        System.out.println("Я хожу и ищю жертву");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Predators predators = (Predators) o;
+        return Objects.equals(getName(), predators.getName());
+    }
+
+    @Override
+    public String toString() {
+        return "Хищники: " + super.toString()  +", Тип еды " + foodType;
+    }
+
+}
