@@ -3,12 +3,12 @@ package transport;
 import java.time.LocalDate;
 
 public class Car extends Transport {
-    double engine;
-    String gear;
+    private double engine;
+    private String gear;
     private String carBody;
-    String licensePlate;
+    private String licensePlate;
     private int seats;
-    String tyre;
+    private String tyre;
 
     public static class key {
         private String remoteStartEngine;
@@ -169,7 +169,7 @@ public class Car extends Transport {
     }
 
     public void setCarBody(String carBody) {
-        if (carBody == null || brand.isEmpty()) {
+        if (carBody == null || carBody.isEmpty()) {
             this.carBody = "default";
         } else {
             this.carBody = carBody;

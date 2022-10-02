@@ -1,10 +1,10 @@
 package transport;
 
 public abstract class Transport {
-    protected String brand;
-    protected String model;
-    final protected int productionYear;
-    final protected String country;
+    private String brand;
+    private String model;
+    final private int productionYear;
+    final private String country;
     String color;
     double maxSpeed;
 
@@ -32,18 +32,8 @@ public abstract class Transport {
         } else {
             this.country = country;
         }
-
-        if (color == null || color.isEmpty()) {
-            this.color = "белый";
-        } else {
-            this.color = color;
-
-        }
-        if (maxSpeed <= 0) {
-            this.maxSpeed = 2000;
-        } else {
-            this.maxSpeed = maxSpeed;
-        }
+        setColor(color);
+        setMaxSpeed(maxSpeed);
 
     }
 
@@ -72,11 +62,20 @@ public abstract class Transport {
     }
 
     public void setColor(String color) {
-        this.color = color;
+        if (color == null || color.isEmpty()) {
+            this.color = "белый";
+        } else {
+            this.color = color;
+
+        }
     }
 
     public void setMaxSpeed(double maxSpeed) {
-        this.maxSpeed = maxSpeed;
+        if (maxSpeed <= 0) {
+            System.out.println("Скорость не известна");
+        } else {
+            this.maxSpeed = maxSpeed;
+        }
     }
 
 

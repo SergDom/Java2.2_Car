@@ -3,7 +3,7 @@ package Animals;
 import java.util.Objects;
 
 public class Predators extends Mammals {
-    String foodType;
+    private String foodType;
 
     public Predators(String name, int age, String environment, int speed, String foodType) {
         super(name, age, environment, speed);

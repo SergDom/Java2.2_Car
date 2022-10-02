@@ -2,10 +2,10 @@ package Animals;
 
 import java.util.Objects;
 
-public class Not_flying_birds extends Birds {
-    String moving;
+public class notFlyingBirds extends Birds {
+    private String moving;
 
-    public Not_flying_birds(String name, int age, String environment, String moving) {
+    public notFlyingBirds(String name, int age, String environment, String moving) {
         super(name, age, environment);
         setMoving(moving);
     }
@@ -41,8 +41,8 @@ public class Not_flying_birds extends Birds {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Not_flying_birds not_flying_birds = (Not_flying_birds) o;
-        return Objects.equals(getName(), not_flying_birds.getName());
+        notFlyingBirds notFlyingBirds = (notFlyingBirds) o;
+        return Objects.equals(getName(), notFlyingBirds.getName());
     }
     @Override
     public String toString() {

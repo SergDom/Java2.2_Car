@@ -3,7 +3,7 @@ package Animals;
 import java.util.Objects;
 
 public class Herbivores extends Mammals {
-    String foodType;
+    private String foodType;
     public Herbivores(String name, int age, String environment, int speed, String foodType) {
         super(name, age, environment, speed);
 

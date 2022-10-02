@@ -1,11 +1,11 @@
 package transport;
 
 public class Train extends Transport {
-    double cost;
-    double time;
-    String departure;
-    String arrival;
-    int quantityWagon;
+    private double cost;
+    private double time;
+    private String departure;
+    private String arrival;
+    private int quantityWagon;
 
 
     public Train(String brand, String model, int productionYear, String country, String color, double maxSpeed, double cost, double time, String departure, String arrival, int quantityWagon) {
